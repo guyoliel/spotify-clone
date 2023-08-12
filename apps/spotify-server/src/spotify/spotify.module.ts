@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { SpotifyController } from './spotify.controller';
+import { ArtistsService } from './artists/artists.service';
+import { SongsService } from './songs/songs.service';
+import { SongsResolver } from './songs/songs.resolver';
 
 @Module({
   imports: [],
-  controllers: [SpotifyController],
-  providers: [],
+  controllers: [],
+  providers: [ArtistsService, SongsService, SongsResolver],
 })
 export class SpotifyModule {}
