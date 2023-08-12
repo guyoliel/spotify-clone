@@ -1,7 +1,7 @@
 import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { Artist } from 'src/spotify/artists/artist.model';
-import { Song } from 'src/spotify/songs/song.model';
-import { ArtistsService } from '../artists/artists.service';
+import { Artist } from 'src/models/artist.model';
+import { Song } from 'src/models/song.model';
+import { ArtistsService } from 'src/artists/artists.service';
 import { SongsService } from './songs.service';
 
 @Resolver((of) => Song)
@@ -12,7 +12,7 @@ export class SongsResolver {
   ) {}
 
   @Query((returns) => Song)
-  async song(@Args('id', { type: () => String }) id: string) {
+  async song(@Args('id', { type: () => String }) id: string): Promise<Song> {
     return this.songsService.findOneById(id);
   }
 

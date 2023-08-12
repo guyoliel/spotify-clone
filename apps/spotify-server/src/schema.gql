@@ -2,27 +2,27 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Artist {
-  id: String!
-  name: String!
-  photoURL: String!
-  songs: [Song!]!
-}
-
 type Song {
   id: String!
   title: String!
-  published_time: DateTime!
-  cover_photo_url: String!
-  song_url: String!
-  artist: Artist!
+  publishedTime: DateTime!
+  coverPhotoURL: String!
+  songURL: String!
   artistId: String!
+  artist: Artist!
 }
 
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Artist {
+  id: String!
+  name: String!
+  photoURL: String!
+  songs: [Song!]!
+}
 
 type Query {
   song(id: String!): Song!
