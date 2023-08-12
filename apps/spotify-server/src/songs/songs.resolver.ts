@@ -16,6 +16,11 @@ export class SongsResolver {
     return this.songsService.findOneById(id);
   }
 
+  @Query((returns) => [Song])
+  async songs(): Promise<Song[]> {
+    return this.songsService.findAll();
+  }
+
   @ResolveField()
   async artist(@Parent() song: Song): Promise<Artist> {
     const { artistId } = song;
