@@ -17,8 +17,8 @@ export class SongsResolver {
   }
 
   @ResolveField()
-  async artist(@Parent() artist: Artist): Promise<Artist> {
-    const { id } = artist;
-    return this.artistsService.findOneById(id);
+  async artist(@Parent() song: Song): Promise<Artist> {
+    const { artistId } = song;
+    return this.artistsService.findOneById(artistId);
   }
 }
