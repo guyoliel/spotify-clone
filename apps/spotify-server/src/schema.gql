@@ -25,6 +25,7 @@ type Artist {
 }
 
 type Query {
+  artist(id: String!): Artist!
   song(id: String!): Song!
   songs: [Song!]!
 }

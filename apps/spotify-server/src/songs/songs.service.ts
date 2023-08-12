@@ -13,4 +13,8 @@ export class SongsService {
   async findOneById(id: string): Promise<Song> {
     return this.songsRepo.findOneBy({ id });
   }
+
+  async findAllByArtistId(artistId: string): Promise<Song[]> {
+    return this.songsRepo.findBy({ artistId });
+  }
 }
